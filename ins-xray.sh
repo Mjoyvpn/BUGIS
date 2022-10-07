@@ -578,26 +578,52 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
 netfilter-persistent reload
 systemctl daemon-reload
-systemctl stop xray@v2ray-tls
-systemctl stop xray@v2ray-nontls
-systemctl stop xray@vless-tls
-systemctl stop xray@vless-nontls
-systemctl stop xray@trojan
-systemctl start xray@v2ray-tls 
-systemctl start xray@v2ray-nontls 
-systemctl start xray@vless-tls 
-systemctl start xray@vless-nontls 
-systemctl start xray@trojan 
-systemctl enable xray@v2ray-tls
-systemctl enable xray@v2ray-nontls
-systemctl enable xray@vless-tls
-systemctl enable xray@vless-nontls
-systemctl enable xray@trojan
-systemctl restart xray@v2ray-tls
-systemctl restart xray@v2ray-nontls
-systemctl restart xray@vless-tls
-systemctl restart xray@vless-nontls
-systemctl restart xray@trojan
+
+iptables-save > /etc/iptables.up.rules
+iptables-restore -t < /etc/iptables.up.rules
+netfilter-persistent save
+netfilter-persistent reload
+systemctl daemon-reload
+systemctl enable v2ray@none.service
+systemctl start v2ray@none.service
+systemctl enable v2ray@vless.service
+systemctl start v2ray@vlessservice
+systemctl enable v2ray@vnone.service
+systemctl start v2ray@vnone.service
+systemctl restart trojan
+systemctl enable trojan
+systemctl restart v2ray
+systemctl enable v2ray
+cd /usr/bin
+wget -O add-ws "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/add-ws.sh"
+wget -O add-vless "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/add-vless.sh"
+wget -O add-tr "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/add-tr.sh"
+wget -O del-ws "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/del-ws.sh"
+wget -O del-vless "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/del-vless.sh"
+wget -O del-tr "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/del-tr.sh"
+wget -O cek-ws "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/cek-ws.sh"
+wget -O cek-vless "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/cek-vless.sh"
+wget -O cek-tr "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/cek-tr.sh"
+wget -O renew-ws "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/renew-ws.sh"
+wget -O renew-vless "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/renew-vless.sh"
+wget -O renew-tr "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/renew-tr.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/cert.sh"
+chmod +x add-ws
+chmod +x add-vless
+chmod +x add-tr
+chmod +x del-ws
+chmod +x del-vless
+chmod +x del-tr
+chmod +x cek-ws
+chmod +x cek-vless
+chmod +x cek-tr
+chmod +x renew-ws
+chmod +x renew-vless
+chmod +x renew-tr
+chmod +x certv2ray
+cd
+rm -f ins-xray.sh
+mv /root/domain /etc/v2ray
 
 # Install Trojan Go
 latest_version="$(curl -s "https://api.github.com/repos/p4gefau1t/trojan-go/releases" | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
