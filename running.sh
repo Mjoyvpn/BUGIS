@@ -139,3 +139,35 @@ echo -e " OHP-OVPN          : OHP-OpenVPN Service is "$green"running"$NC""
 else
 echo -e " OHP-OVPN          : OHP-OpenVPN is "$red"not running (Error)"$NC""
 fi
+status="$(systemctl show ws-ssh.service --no-page)"
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+if [ "${status_text}" == "active" ]
+then
+echo -e " WS-OpenSSH        : WS-OpenSSH Service is "$green"running"$NC""
+else
+echo -e " WS-OpenSSH        : WS-OpenSSH is "$red"not running (Error)"$NC""
+fi
+status="$(systemctl show ws-ovpn.service --no-page)"
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+if [ "${status_text}" == "active" ]
+then
+echo -e " WS-OpenOvpn       : WS-OpenOvpn Service is "$green"running"$NC""
+else
+echo -e " WS-OpenOvpn       : WS-OpenOvpn is "$red"not running (Error)"$NC""
+fi
+status="$(systemctl show ws-dropbear.service --no-page)"
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+if [ "${status_text}" == "active" ]
+then
+echo -e " WS-Dropbear       : WS-Dropbear Service is "$green"running"$NC""
+else
+echo -e " WS-Dropbear       : WS-Dropbear is "$red"not running (Error)"$NC""
+fi
+status="$(systemctl show ws-stunnel.service --no-page)"
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+if [ "${status_text}" == "active" ]
+then
+echo -e " WS-Stunnel        : WS-Stunnel Service is "$green"running"$NC""
+else
+echo -e " WS-Stunnel        : WS-Stunnel is "$red"not running (Error)"$NC""
+fi
