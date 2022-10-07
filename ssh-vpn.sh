@@ -279,7 +279,9 @@ wget -O ssh "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/menu-all/ssh.s
 wget -O ssssr "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/menu-all/ssssr.sh"
 
 wget -O /usr/bin/running https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/running.sh && chmod +x /usr/bin/running && cd /usr/bin && apt install -y dos2unix && dos2unix running
+wget -O ipsaya "https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/ipsaya.sh"
 
+chmod +x ipsaya
 chmod +x add-host
 chmod +x script-info
 chmod +x menu
