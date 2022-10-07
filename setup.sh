@@ -34,10 +34,11 @@ wget https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/geo.sh && chmod +x geo
 #install Ohp
 wget https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 
-
+rm -f /root/install
 rm -f /root/ssh-vpn.sh
 rm -f /root/wg.sh
 rm -f /root/ss.sh
+rm -f /root/set-br.sh
 rm -f /root/ssr.sh
 rm -f /root/ins-vt.sh
 rm -f /root/set-br.sh
@@ -73,7 +74,7 @@ echo ""  | tee -a log-install.txt
 echo "   >>> Service & Port"  | tee -a log-install.txt
 echo "   - OpenSSH                 : 22"  | tee -a log-install.txt
 echo "   - OpenVPN                 : TCP 1194, UDP 2200, SSL 442"  | tee -a log-install.txt
-echo "   - Stunnel4                : 444, 222, 777"  | tee -a log-install.txt
+echo "   - Stunnel4                : 443, 222, 777"  | tee -a log-install.txt
 echo "   - Dropbear                : 109, 143"  | tee -a log-install.txt
 echo "   - Squid Proxy             : 3128, 8080, 8000 (limit to IP Server)"  | tee -a log-install.txt
 echo "   - OpenVPN OHP             : 8383"  | tee -a log-install.txt
@@ -87,7 +88,7 @@ echo "   - SS-OBFS TLS             : 2443-2543"  | tee -a log-install.txt
 echo "   - SS-OBFS HTTP            : 3443-3543"  | tee -a log-install.txt
 echo "   - V2RAY Vmess TLS         : 8443"  | tee -a log-install.txt
 echo "   - V2RAY Vmess None TLS    : 80"  | tee -a log-install.txt
-echo "   - V2RAY Vless TLS         : 443"  | tee -a log-install.txt
+echo "   - V2RAY Vless TLS         : 4433"  | tee -a log-install.txt
 echo "   - V2RAY Vless None TLS    : 6363"  | tee -a log-install.txt
 echo "   - Trojan                  : 2087"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
@@ -111,7 +112,7 @@ echo "   - Telegram               : @joysmark"  | tee -a log-install.txt
 echo "   - Instagram              : @trikjoysmart"  | tee -a log-install.txt
 echo "   - Whatsapp               : 0169449960"  | tee -a log-install.txt
 echo "   - Facebook               : Kibo Kajang" | tee -a log-install.txt
-echo "------------------Script Created By Joy Smart Bugis----------------" | tee -a log-install.txt
+echo "------------------Script Created By Joy Smart BUGIS----------------" | tee -a log-install.txt
 echo ""
 echo " Reboot 10 Sec"
 sleep 10
