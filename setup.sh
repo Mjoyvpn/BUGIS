@@ -34,10 +34,10 @@ wget https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/geo.sh && chmod +x geo
 #install Ohp
 wget https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 #install edu
-wget https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/websocket/edu.sh && chmod +x edu.sh && ./edu.sh
+#wget https://raw.githubusercontent.com/Mjoyvpn/BUGIS/main/websocket/edu.sh && chmod +x edu.sh && ./edu.sh
 
 rm -f /root/install
-rm -f /root/edu.sh
+#rm -f /root/edu.sh
 rm -f /root/ssh-vpn.sh
 rm -f /root/wg.sh
 rm -f /root/ss.sh
